@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+  <cache
+    name="com.hibernate.model.Laptop"
+    maxElementsInMemory="50" 
+    maxElementsOnDisk="30" 
+    eternal="false"
+    timeToIdleSeconds="4"
+    timeToLiveSeconds="8"
+    overflowToDisk="true"/>
+    
+    <defaultCache
+            maxElementsInMemory="100"
+            eternal="false"
+            timeToIdleSeconds="4"
+            timeToLiveSeconds="8"
+            overflowToDisk="true"
+            maxElementsOnDisk="100"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"/>
+    
+</ehcache>
+

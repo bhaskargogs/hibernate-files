@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/own_db?createDatabaseIfNotExist=true</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<!-- Use the following when using either second level cache or query cache -->
+		
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<!-- https://jsoftbiz.wordpress.com/2013/03/14/hibernate-4-and-ehcache-higher-than-2-4-3/ -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property> -->
+		<property name="hibernate.cache.provider_configuration_file_resource_path">/synergistic.xml</property>
+
+		<!-- Below is responsible for creating table -->
+		<property name="hbm2ddl.auto">update</property>
+		<mapping class="com.hibernate.model.Fruit" />
+		<mapping class="com.hibernate.relation.model.Mobile" />
+		<mapping class="com.hibernate.relation.model.Student" />
+		<mapping class="com.hibernate.relation.model.Teacher" />
+		<mapping class="com.hibernate.relation.model.Address" />
+		<mapping class="com.hibernate.inheritance.model.Pizza" />
+		<mapping class="com.hibernate.inheritance.model.NonVegPizza" />
+		<mapping class="com.hibernate.inheritance.model.VegPizza" />
+		<mapping class="com.hibernate.caching.model.Car" />
+		<mapping class="com.hibernate.caching.model.Vehicle" />
+		<mapping class="com.hibernate.caching.model.Bike" />
+	</session-factory>
+</hibernate-configuration>
